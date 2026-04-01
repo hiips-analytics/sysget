@@ -13,13 +13,19 @@ abstract class Controller
         // 
         extract($data);
         
-        $file = __DIR__ . "/../../resources/views/" . $view . ".hiips.php";
+        // On construit le chemin complet vers la vue
+        $viewPath = __DIR__ . "/../../resources/views/{$view}.hiips.php";
 
-        if (file_exists($file)) {
-            require_once $file;
-        } else {
-            die("La vue '$view' n'existe pas!");
+        if (!file_exists($viewPath)) {
+            die("La vue {$view} est introuvable dans " . $viewPath);
         }
+
+        ob_start();
+        require_once $viewPath;
+        $content = ob_get_clean();
+
+        // Idem pour le layout
+        require_once __DIR__ . "/../../resources/views/layouts/app.hiips.php";
     }
 
     protected function clean($data) {
