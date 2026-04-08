@@ -37,12 +37,36 @@ body::before { content: ''; position: fixed; inset: 0; background: linear-gradie
 .button-outline { border: 1px solid rgba(255,255,255,0.12); }
 
 .page-content { padding: 120px 28px 48px; max-width: 1320px; margin: 0 auto; }
-.home-page .page-hero, .login-page .login-panel, .page-hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 26px; align-items: stretch; margin-bottom: 32px; }
+.page-content.login-page { min-height: calc(100vh - 140px); display: grid; place-items: center; }
+.login-page .login-panel { display: grid; place-items: center; width: min(100%, 560px); margin: 0 auto; }
+.home-page .page-hero, .page-hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 26px; align-items: stretch; margin-bottom: 32px; }
 .page-hero.small-hero { grid-template-columns: 1fr; }
 .hero-copy h2 { font-size: clamp(2.5rem, 3.5vw, 3.7rem); line-height: 1.05; margin-bottom: 20px; }
 .hero-copy p { color: var(--muted); max-width: 600px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
 .hero-panel { display: grid; gap: 18px; }
+.feature-grid { display: grid; gap: 22px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 36px; }
+.feature-card { border-radius: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 26px; box-shadow: 0 26px 60px rgba(0, 0, 0, 0.16); }
+.feature-card h3 { margin: 0 0 12px; font-size: 1.1rem; }
+.feature-card p { color: var(--muted); line-height: 1.75; }
+.schedule-wrapper { overflow-x: auto; margin-top: 30px; }
+.schedule-table { width: 100%; border-collapse: collapse; min-width: 760px; }
+.schedule-table th,
+.schedule-table td { padding: 16px 18px; text-align: left; border: 1px solid rgba(255,255,255,0.08); }
+.schedule-table th { background: rgba(255,255,255,0.04); color: var(--text); font-weight: 700; }
+.schedule-cell { min-height: 96px; vertical-align: top; }
+.time-cell { width: 120px; font-weight: 700; color: var(--text); background: rgba(255,255,255,0.03); }
+.session-chip { display: block; margin-bottom: 8px; font-weight: 700; color: var(--blue); }
+.session-meta { color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
+.empty-cell { color: rgba(255,255,255,0.45); }
+.page-section { display: grid; gap: 26px; margin-bottom: 24px; }
+.admin-grid { display: grid; gap: 24px; grid-template-columns: 1fr 1.2fr; }
+.admin-card { border-radius: 26px; background: rgba(10,17,28,0.93); border: 1px solid rgba(255,255,255,0.08); box-shadow: var(--shadow); padding: 28px; }
+.admin-card h3 { margin-top: 0; }
+.entity-table-card table { width: 100%; border-collapse: collapse; }
+.entity-table-card th, .entity-table-card td { padding: 14px 12px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.action-button { border: 1px solid rgba(255,255,255,0.12); background: transparent; border-radius: 999px; padding: 8px 14px; color: var(--text); cursor: pointer; text-decoration: none; display: inline-block; }
+.action-danger { border-color: rgba(255,116,116,0.25); color: #ff8686; }
 .info-card, .hero-card, .panel, .login-card { border-radius: 26px; background: rgba(10,17,28,0.93); border: 1px solid rgba(255,255,255,0.07); box-shadow: var(--shadow); padding: 28px; }
 .info-card { min-height: 138px; display: flex; flex-direction: column; justify-content: space-between; }
 .hero-card { display: grid; gap: 18px; }
@@ -51,11 +75,13 @@ body::before { content: ''; position: fixed; inset: 0; background: linear-gradie
 .grid-layout { display: grid; gap: 22px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .content-block { margin-top: 4px; }
 
-.login-page .login-panel { min-height: calc(100vh - 140px); place-items: center; }
 .login-card { max-width: 520px; }
 .form-grid { display: grid; gap: 16px; margin-top: 18px; }
 .form-grid label { color: var(--muted); font-weight: 600; }
 .form-grid input, .form-grid select { border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: var(--text); padding: 14px 16px; }
+.alert { padding: 16px; border-radius: 12px; margin-bottom: 20px; }
+.alert-error { background: rgba(255, 116, 116, 0.1); border: 1px solid rgba(255, 116, 116, 0.2); color: #ff8686; }
+.alert-success { background: rgba(116, 255, 116, 0.1); border: 1px solid rgba(116, 255, 116, 0.2); color: #86ff86; }
 .credential-box { margin-top: 18px; padding: 18px; border-radius: 20px; background: rgba(255,255,255,0.04); color: var(--muted); font-size: 0.94rem; }
 
 .dashboard-page { min-height: calc(100vh - 140px); }
