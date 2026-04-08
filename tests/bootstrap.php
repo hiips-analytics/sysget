@@ -1,4 +1,7 @@
 <?php
+// Charger l'autoload de Composer
+require_once __DIR__ . '/../vendor/autoload.php';
+
 // Autoload personnalisé pour les tests (sans Composer)
 spl_autoload_register(function ($class) {
     // Convertir le namespace en chemin de fichier
